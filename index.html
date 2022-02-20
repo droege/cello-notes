@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <title>Cello notes</title>
+  </head>
+  <body>
+    <div class="container-fluid mx-auto" style="padding:20px;">
+      <div class="row">
+        <div class="col">
+          <label for="input" class="form-label">Input</label>
+          <textarea name="input" id="input" rows="2" class="form-control" onkeyup="draw()"></textarea>
+            
+          <input type="checkbox" name="showFingers" id="showFingers" checked> <label for="showFingers"> Show fingers instead of steps</label>
+          <br>
+          <button class="btn btn-primary" onclick="sanitiseInput()">Sanitise input</button>
+        </div>
+
+        <div class="col">
+          <label for="transpose" class="form-label">Transpose by</label>
+          <input type="number" name="transpose" id="transpose" class="form-control">
+          <div class="btn-toolbar mt-2">
+            <div id="transpositionSuggestionsDisplay" class="btn-group btn-group-sm me-2"></div>
+            <div class="btn-group btn-group-sm me-2">
+              <button class="btn btn-primary" onclick="addTransposition(-7)">-7</button>
+              <button class="btn btn-primary" onclick="addTransposition(7)">+7</button>
+            </div>
+            <div class="btn-group btn-group-sm">
+              <button class="btn btn-primary" onclick="setTransposition(0)">0</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <br><br><br>
+      
+      <div id="output"></div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
